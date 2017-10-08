@@ -139,8 +139,11 @@ database.ref().on("child_added", function(childsnapshot){
   console.log(childsnapshot.val().startTimeOfTrain);
   console.log(childsnapshot.val().frequencyInput);
 
+var startTimeInPast = moment(childsnapshot.val().startTimeOfTrain).subtract(1,"years");
 
-var startTimeInMins = moment.duration(childsnapshot.val().startTimeOfTrain).asMinutes();
+
+
+var startTimeInMins = moment.duration(startTimeInPast).asMinutes();
 console.log("Line 149 " + startTimeInMins);
 
 
